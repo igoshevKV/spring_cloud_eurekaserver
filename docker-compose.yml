@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  eurekaserver:
+    image: eurekaserv:latest
+    ports:
+      - "8070:8070"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=default"
+    networks:
+      backend:
+        aliases:
+            - "eureka-server"
+networks:
+  backend:
+    driver: bridge
+
