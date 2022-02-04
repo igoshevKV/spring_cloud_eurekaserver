@@ -2,7 +2,6 @@ FROM openjdk:11-slim as build
 WORKDIR application
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} application.jar
-#EXPOSE 8070-8081
 RUN java -Djarmode=layertools -jar application.jar extract
 
 FROM openjdk:11-slim
